@@ -23,7 +23,7 @@ export class ShoesDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.shoe = shoes[+params.get('productId')];
+      //this.shoe = shoes[+params.get('productId')];
     })
   }
 }

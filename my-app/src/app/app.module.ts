@@ -18,7 +18,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { ConditionsComponent } from './conditions/conditions.component';
 import { OrderComponent } from './order/order.component';
 import { OrderService } from './order.service';
-
+import {DressComponent} from "./components/DressComponent/dress.component";
 
 
 @NgModule({
@@ -36,6 +36,7 @@ import { OrderService } from './order.service';
       { path: 'privacy', component: PrivacyComponent},
       { path: 'conditions', component: ConditionsComponent},
       { path: 'order', component: OrderComponent},
+      { path: 'dress', component: DressComponent}
     ])
   ],
   declarations: [
@@ -53,6 +54,7 @@ import { OrderService } from './order.service';
     PrivacyComponent,
     ConditionsComponent,
     OrderComponent,
+    DressComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [CartService, OrderService]
