@@ -1,52 +1,64 @@
-<ul>
-  <li class="facebook"><a href="http://www.facebook.com" target="_blank">Facebook</a></li>
-  <li class="twitter"><a href="https://twitter.com" target="_blank">Twitter</a></li>
-  <li class="youtube"><a href="http://www.youtube.com" target="_blank">YouTube</a></li>
-</ul>
+<!--<ul>-->
+<!--  <li class="facebook"><a href="http://www.facebook.com" target="_blank">Facebook</a></li>-->
+<!--  <li class="twitter"><a href="https://twitter.com" target="_blank">Twitter</a></li>-->
+<!--  <li class="youtube"><a href="http://www.youtube.com" target="_blank">YouTube</a></li>-->
+<!--</ul>-->
+<nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<div class="column info">
-  <h3>Order</h3>
-  <app-top-bar></app-top-bar>
-
-  <div class="container">
-    <router-outlet></router-outlet>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="accessories" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          accessories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="accessories">
+          <a class="dropdown-item" routerLink="/product/shoes" routerLinkActive="active">Shoes</a>
+          <a class="dropdown-item" routerLink="/product/hat" routerLinkActive="active">Hats</a>
+          <a class="dropdown-item" routerLink="/product/socks" routerLinkActive="active">Socks</a>
+          <a class="dropdown-item" routerLink="/product/bag" routerLinkActive="active">Bags</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="clothes" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          Clothes
+        </a>
+        <div class="dropdown-menu" aria-labelledby="clothes">
+          <a class="dropdown-item" routerLink="/product/sweater" routerLinkActive="active">Sweaters</a>
+          <a class="dropdown-item" routerLink="/product/jeans" routerLinkActive="active">Jeans</a>
+          <a class="dropdown-item" routerLink="/product/dress" routerLinkActive="active">Dresses</a>
+        </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/logIn" routerLinkActive="active">LogIn</a>
+      </li>
+    </ul>
+    <div class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-info m-2" type="submit" (click)="openCloseCart()">cart</button>
+    </div>
   </div>
- <div *ngIf="router.url == '/'">
-   <p>our products</p>
-   <div *ngFor="let product of products" class="product">
-     <img src="http://localhost:3000/{{product.image}}">
-     <h2>{{product.name}}</h2>
-     <p>type: {{product.type}}</p>
-     <p>price: {{product.price}}</p>
-   </div>
- </div>
-  <p><br> Welcome to our Webshop!<br/></p>
-  <div class="footer">
-    <div class="footer-menu-wrapper">
-      <div class="column information">
-        <h3>Information</h3>
-        <ul>
-          <li><a routerLink="/shipping">Shipping Prices</a></li>
-          <li><a routerLink="/privacy">Privacy Policy</a></li>
-          <li><a routerLink="/conditions">Terms of Use</a></li>
-        </ul>
-      </div>
-
-      <div class="column follow-us">
-        <h3>Follow us</h3>
-        <ul>
-          <li><a routerLink="/order">Order</a></li>
-          <li>Contact Us</li>
-          <li><a routerLink="/conditions">Terms of Use</a></li>
-        </ul>
-      </div>
-      <div class="footer-poweredby">
-        Powered by Fetching
-
-      </div>
-      <div class="footer-disclaimer">
-        Copyright &copy; 2020 Fetching Web Shop. All rights reserved.
-      </div>
-
+</nav>
+<div class="row w-100">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <div class="row">
 
     </div>
+      <router-outlet></router-outlet>
+  </div>
+  <div class="col-2 p-0">
+    <cart *ngIf="cart"></cart>
+  </div>
+</div>
+
